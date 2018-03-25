@@ -6,4 +6,6 @@ data_type_exploration <- function() {
     print(my_answer)
 }
 
+
+
 data_type_exploration()

@@ -9,7 +9,7 @@
     <Platform Condition="'$(Platform)' == ''">AnyCPU</Platform>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupFile>1_basics\basic_datatypes.R</StartupFile>
+    <StartupFile>3_dataframe\dataframe_basic.R</StartupFile>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

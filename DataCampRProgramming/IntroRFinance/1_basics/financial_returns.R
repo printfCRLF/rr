@@ -21,4 +21,10 @@ financial_returns1 <- function() {
     print(post_jan_cash_10)
 }
 
+financial_returns2() {
+    
+
+
+}
+
 financial_returns1()
