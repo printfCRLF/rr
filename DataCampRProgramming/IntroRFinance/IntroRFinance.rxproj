@@ -9,7 +9,7 @@
     <Platform Condition="'$(Platform)' == ''">AnyCPU</Platform>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupFile>1_basics\financial_returns.R</StartupFile>
+    <StartupFile>1_basics\basic_datatypes.R</StartupFile>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
