@@ -7,6 +7,8 @@ Project("{DA7A21FA-8162-4350-AD77-A8D1B671F3ED}") = "DataCampRProgramming", "Dat
 EndProject
 Project("{DA7A21FA-8162-4350-AD77-A8D1B671F3ED}") = "IntroRFinance", "IntroRFinance\IntroRFinance.rxproj", "{0155003E-37CF-4A74-BDC1-3EE93FE872F7}"
 EndProject
+Project("{DA7A21FA-8162-4350-AD77-A8D1B671F3ED}") = "XtsZoo", "XtsZoo\XtsZoo.rxproj", "{3D94B727-7450-44CF-8022-D10FC0ACF108}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0155003E-37CF-4A74-BDC1-3EE93FE872F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0155003E-37CF-4A74-BDC1-3EE93FE872F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0155003E-37CF-4A74-BDC1-3EE93FE872F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D94B727-7450-44CF-8022-D10FC0ACF108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D94B727-7450-44CF-8022-D10FC0ACF108}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D94B727-7450-44CF-8022-D10FC0ACF108}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D94B727-7450-44CF-8022-D10FC0ACF108}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
