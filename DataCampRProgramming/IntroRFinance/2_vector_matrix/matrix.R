@@ -25,7 +25,7 @@ bind <- function() {
 
     rbind_stocks <- rbind(apple, ibm, micr)
     print(rbind_stocks)
-    
+
 }
 
 visualize_your_matrix <- function() {
