@@ -11,6 +11,8 @@ Project("{DA7A21FA-8162-4350-AD77-A8D1B671F3ED}") = "IntroRFinance", "IntroRFina
 EndProject
 Project("{DA7A21FA-8162-4350-AD77-A8D1B671F3ED}") = "XtsZoo", "XtsZoo\XtsZoo.rxproj", "{3D94B727-7450-44CF-8022-D10FC0ACF108}"
 EndProject
+Project("{DA7A21FA-8162-4350-AD77-A8D1B671F3ED}") = "BondAnalysis", "BondAnalysis\BondAnalysis.rxproj", "{2C07F444-1315-40B0-970A-6D1AF934ACE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{3D94B727-7450-44CF-8022-D10FC0ACF108}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D94B727-7450-44CF-8022-D10FC0ACF108}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D94B727-7450-44CF-8022-D10FC0ACF108}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C07F444-1315-40B0-970A-6D1AF934ACE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C07F444-1315-40B0-970A-6D1AF934ACE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C07F444-1315-40B0-970A-6D1AF934ACE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C07F444-1315-40B0-970A-6D1AF934ACE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
