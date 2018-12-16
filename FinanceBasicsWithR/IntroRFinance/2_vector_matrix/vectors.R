@@ -3,6 +3,7 @@ combine_example <- function() {
     # a vector can only be constructed using one data type
 
     ibm_stock <- c(159.82, 160.02, 159.84)
+    is.vector(ibm_stock)
     finance <- c("stocks", "bonds", "investments")
     logic <- c(TRUE, FALSE, TRUE)
 
@@ -40,3 +41,4 @@ plotting <- function() {
 #coerce_it()
 #names()
 plotting()
+
