@@ -1,0 +1,115 @@
+titanic <- read.csv("titanic.csv")
+
+exploratory <- function() {
+    dim(titanic)
+    hist(titanic$Age)
+
+    # Print out total value of fares
+    fare <- sum(titanic$Fare)
+    print(fare)
+
+    # Print out proportion of passengers that survived
+    numOfSurvived <- mean(titanic$Survived)
+    print(numOfSurvived)
+}
+
+infer_gender_from_name1 <- function() {
+    # Extract the name column from titanic
+    pass_names <- titanic$Name
+
+    # Create the logical vector is_man
+    is_man <- grepl(", Mr\\.", pass_names)
+
+    # Count the number of men
+    numOfMen1 <- sum(is_man)
+    print("Number of men1: ")
+    print(numOfMen1)
+
+    # Count number of men based on gender
+    numOfMen2 <- sum(titanic$Sex == "male")
+    print("Number of men2: ")
+    print(numOfMen2)
+}
+
+infer_gender_from_name2 <- function() {
+    # Extract the name column from titanic
+    pass_names <- titanic$Name
+
+    # Create titles
+    titles <- gsub("^.*, (.*?)\\..*$", "\\1", pass_names)
+
+    # Call unique() on titles
+    unique(titles)
+}
+
+infer_gender_from_name3 <- function() {
+    pass_names <- titanic$Name
+    titles <- paste(",", c("Mr\\.", "Master", "Don", "Rev", "Dr\\.", "Major", "Sir", "Col", "Capt", "Jonkheer"))
+
+    # Finish the vapply() command
+    hits <- vapply(titles,
+               FUN = grepl,
+               FUN.VALUE = logical(length(pass_names)),
+               pass_names)
+
+    numOfMen1 <- sum(hits)
+    print("Number of men1: ")
+    print(numOfMen1)
+
+    numOfMen2 <- sum(titanic$Sex == "male")
+    print("Number of men2: ")
+    print(numOfMen2)
+
+}
+
+reformat_passenger_names <- function() {
+
+    pass_names <- titanic$Name
+    # Finish the convert_name() function
+    convert_name <- function(name) {
+        # women: take name from inside parentheses
+        if (grepl("\\(.*?\\)", name)) {
+            gsub("^.*?\\((.*?)\\)$", "\\1", name)
+            # men: take name before comma and after title
+        } else {
+            gsub("^(.*?),\\s[a-zA-Z\\.]*?\\s(.*?)$", "\\2 \\1", name)
+        }
+    }
+
+    # Call convert_name on name
+    clean_pass_names <- vapply(pass_names, FUN = convert_name,
+                           FUN.VALUE = character(1), USE.NAMES = FALSE)
+
+    # Print out clean_pass_names
+    clean_pass_names
+}
+
+add_birth_dates <- function() {
+    dob1 <- c("1890-01-03", "1874-02-28", "1886-01-17", "1877-03-04", "1876-09-28", NA, "1857-06-14", "1909-08-11", "1884-10-17", "1898-01-05", "1908-04-11", "1853-04-27", "1891-06-09", "1873-01-08", "1897-04-15", "1856-09-04", "1909-09-30", NA, "1880-09-03", NA, "1876-09-08", "1877-06-19", "1897-03-28", "1883-09-28", "1903-08-12", "1874-04-02", NA, "1892-12-29", NA, NA, "1871-12-06", NA, NA, "1845-09-04", "1883-12-26", "1869-10-30", NA, "1890-07-06", "1893-10-08", "1898-01-29", "1871-04-17", "1884-06-22", NA, "1908-12-19", "1892-08-28", NA, NA, NA, NA, "1893-08-24", "1905-02-26", "1891-03-11", "1862-11-26", "1882-06-02", "1847-01-25", NA, "1890-09-18", "1884-03-19", "1907-01-22", "1900-07-18", "1889-08-10", "1873-05-06", "1866-04-30", "1907-05-05", NA, NA, "1882-11-29", "1893-04-02", "1895-02-10", "1885-08-07", "1879-07-01", "1896-01-08", "1890-10-14", "1886-01-06", "1879-05-14", "1886-09-20", NA, NA, "1910-07-10", "1882-01-28", "1889-07-18", "1883-04-09", NA, "1884-01-17", "1895-04-07", "1878-07-03", "1896-03-27", NA, "1888-06-08", "1887-11-20", "1883-03-26", "1891-12-22", "1865-10-16", "1885-08-29", "1852-08-15", NA, "1840-05-02", "1888-11-26", "1878-03-31", "1877-12-10", "1883-10-18", NA, "1890-06-08", "1879-02-26", "1874-10-19", "1883-04-18", "1890-04-22", NA, "1873-06-06", NA, "1864-08-04", "1898-02-10", "1889-10-15", "1892-02-03", "1894-05-07", "1891-03-19", "1842-02-03", "1882-05-13", "1887-11-20", "1909-12-31", "1890-10-19", NA, "1880-01-03", "1880-01-14", "1857-05-19", "1899-09-07", NA, "1887-07-31", NA, "1866-11-26", "1879-04-05", "1891-11-27", "1864-10-22", "1883-03-10", "1886-12-03", "1889-02-24", "1892-07-15", "1874-07-02", "1895-11-24", "1887-09-02", NA, "1890-01-15", "1887-08-31", "1893-01-30", "1894-03-11", "1893-04-09", "1884-11-15", "1902-04-18", "1875-08-10", "1869-11-05", "1860-10-19", "1889-05-17", "1856-12-20", "1871-12-30", NA, "1861-02-01", "1896-03-25", "1881-06-22", NA, NA, "1867-07-25", "1872-01-23", "1885-04-27", "1894-12-16", "1911-02-05", "1902-12-13", NA, "1867-03-25", NA, "1884-02-29", "1850-12-25", "1907-06-21", "1910-05-20", "1891-02-03", "1855-10-22", "1893-12-24", NA, "1861-07-02", "1881-11-30", "1875-06-07", NA, NA, "1903-03-31", "1911-04-11", "1907-10-13", NA, NA, "1867-03-16", "1871-08-29", "1876-02-11", "1879-11-05", "1893-01-30", "1892-08-21", "1908-06-30", "1868-01-27", "1853-12-20", NA, "1869-09-19", NA, "1888-02-18", "1883-11-21", NA, "1878-01-10", "1866-11-18", "1894-02-19", "1910-02-06", "1879-09-01", "1885-10-11", "1896-04-12", "1871-06-17", "1888-02-14", "1876-09-06", "1890-04-03", "1881-06-22", NA, "1881-01-13", "1884-08-05", "1869-08-31", "1880-01-14", "1881-12-28", "1896-03-16", "1885-01-30", "1861-02-11", NA, "1873-06-15", "1889-09-11", "1892-06-25", "1891-07-18", "1894-04-04", NA, "1877-02-05", "1882-08-19", "1853-03-23", "1906-06-13", "1887-06-11", NA, "1868-01-15", "1904-03-04", "1892-08-04", "1878-08-06", NA, NA, "1883-04-09", "1889-04-17", "1881-07-24", "1868-02-01", "1886-07-12", "1887-09-29", "1874-11-15", "1858-03-06", NA, "1882-05-30", "1849-10-19", "1881-12-13", "1871-01-19", "1882-05-18", NA, "1881-05-09", "1876-11-03", "1861-12-08", NA, "1908-08-01", "1859-12-25", "1871-08-31", NA, "1875-07-19", "1896-03-24", "1886-09-19", "1853-08-12", "1876-10-27", NA, "1886-11-29", "1870-06-16", "1874-05-24", NA, "1848-05-24", "1866-05-18", NA, "1904-10-27", "1877-03-08", "1846-12-30", "1884-03-11", "1895-09-21", "1892-10-02", NA, "1878-11-19", "1881-08-04", "1889-11-09", "1869-10-06", "1889-12-25", "1886-01-08", "1892-10-20", "1876-04-09", "1888-03-15", "1887-10-04", NA, "1888-08-31", "1910-03-23", NA, "1862-03-25", NA, NA, "1893-03-11", NA, NA, "1911-01-26", NA, "1894-11-29", "1881-12-17", "1882-03-23", "1887-10-27", "1893-08-15", "1886-01-28", "1883-05-30", "1869-03-31", "1885-04-26", "1887-07-19", "1858-02-28", "1881-02-17", "1871-04-21", "1889-06-21", "1884-05-27", "1881-10-06", "1890-03-27", NA, "1876-02-11", "1851-02-05", "1876-03-15", "1880-12-26", "1895-05-15", NA, "1866-05-28", "1874-01-29", "1896-04-13", NA, NA, "1882-12-23", "1870-06-07", "1866-08-09", "1866-06-10", "1910-04-13", "1888-01-13", "1883-09-05", "1886-11-02", "1875-04-25", "1887-08-16", "1872-02-23", NA, "1908-05-31", "1870-01-28", "1888-05-20", NA, "1896-04-21", "1886-07-24", NA, "1883-09-12", "1889-05-09", "1874-01-30", NA, NA, "1871-10-17", "1882-10-21", "1866-12-28", "1877-02-12", NA, "1881-05-07", "1851-08-16", NA, NA, "1888-02-02", "1886-07-27", "1894-02-06", "1892-07-02", "1889-11-03", "1908-04-20", NA, "1889-05-04", "1884-11-19", "1891-12-30", "1892-12-09", "1869-11-11", "1910-12-18", "1879-06-30", "1876-07-10", NA, "1893-09-28", "1910-08-17", "1875-09-08", NA, "1894-09-19", "1876-03-29", "1890-07-05", "1883-08-26", "1889-03-03", "1887-10-24", "1889-11-14", "1880-07-18", "1866-02-26", "1888-08-07", "1883-12-17")
+
+    dob2 <- c("November 26, 1872", "September 09, 1885", "September 09, 1890", "April 01, 1884", "August 08, 1891", "April 20, 1877", "June 12, 1860", "July 07, 1908", "September 04, 1890", NA, NA, NA, "February 18, 1879", NA, "January 09, 1868",
+    , NA, "December 17, 1877", "May 24, 1893", "May 06, 1881", "March 31, 1902", NA, "January 06, 1891", "October 11, 1882", "March 02, 1884", "November 12, 1893", NA, "December 25, 1883", "March 13, 1893", NA, "February 15, 1880", "October 20, 1883", NA, "November 29, 1869", "January 30, 1895", "March 25, 1862", "May 01, 1897", "January 15, 1891", "December 21, 1887", "November 28, 1847", "April 12, 1881", "December 03, 1866", "December 11, 1891", "January 05, 1887", "November 15, 1883", NA, "November 11, 1907", "April 27, 1898", "January 27, 1878", "June 20, 1906", "June 15, 1859", "October 07, 1875", NA, "July 12, 1881", "August 18, 1862", NA, "January 01, 1883", "February 26, 1847", NA, "July 16, 1861", NA, "January 30, 1864", "November 09, 1877", "October 25, 1864", "January 27, 1864", NA, "March 19, 1874", NA, "November 28, 1855", NA, "December 06, 1910", NA, "September 20, 1873", "September 19, 1878", "April 05, 1889", "August 05, 1889", NA, "September 28, 1877", "December 28, 1882", "February 05, 1890", "August 04, 1909", "December 18, 1902", NA, "January 26, 1862", "February 22, 1849", "November 26, 1886", NA, "June 22, 1876", "March 11, 1854", "April 26, 1881", "January 27, 1903", NA, "February 20, 1891", "February 01, 1857", "June 15, 1840", "August 12, 1890", NA, "June 26, 1857", NA, "August 12, 1886", "September 01, 1887", "October 16, 1894", "May 30, 1890", NA, "May 12, 1874", "October 05, 1895", "July 20, 1893", "July 08, 1878", NA, "November 19, 1883", "June 12, 1885", "February 21, 1883", NA, "July 10, 1875", "January 30, 1858", "May 13, 1887", "October 29, 1864", "January 01, 1878", NA, "April 29, 1875", "April 24, 1879", "January 10, 1882", "January 21, 1890", NA, "October 29, 1867", NA, "September 04, 1871", "October 03, 1861", NA, "May 29, 1872", "February 15, 1889", "July 21, 1909", NA, "June 25, 1894", NA, "July 15, 1881", "September 04, 1904", "February 16, 1867", "April 07, 1882", NA, "August 04, 1889", "July 22, 1875", "November 28, 1902", "November 28, 1900", "May 05, 1879", "January 12, 1862", "August 06, 1847", "April 30, 1892", NA, "November 08, 1878", "April 21, 1903", "February 28, 1895", "October 24, 1884", NA, "May 24, 1889", "February 03, 1890", "February 04, 1850", "April 19, 1863", NA, "December 20, 1872", "September 23, 1875", NA, "March 10, 1872", "September 06, 1883", NA, NA,, "April 16, 1887", "April 01, 1893", "April 02, 1883", NA, "January 14, 1880", "September 08, 1849", "September 14, 1858", "February 10, 1876", NA, "October 16, 1895", "December 25, 1892", "March 23, 1878", "July 17, 1872", NA, "October 26, 1879", "May 18, 1886", "October 25, 1872", "March 18, 1858", "July 03, 1875", NA, "February 23, 1894", "November 07, 1864", "September 07, 1851", "November 21, 1889", NA, "August 30, 1876", "February 06, 1860", "July 30, 1864", NA, "August 09, 1874", "September 14, 1875", NA, "January 23, 1863", NA, "December 04, 1862", "July 19, 1887", NA, NA, "August 07, 1867", "January 08, 1877", "January 23, 1876", "November 19, 1881", "May 27, 1884", "July 12, 1889", "July 20, 1871", "July 28, 1872", NA, NA, NA, "October 26, 1876", "September 07, 1887", "December 06, 1877", "June 06, 1885", "February 26, 1908", "September 29, 1885", "March 09, 1885", "January 24, 1870", "February 07, 1892", "April 13, 1891", "November 16, 1890", "October 02, 1850", "August 13, 1854", "December 28, 1890", "January 16, 1886", NA, "January 23, 1832", "February 27, 1861", "June 30, 1879", NA, "January 19, 1903", "February 17, 1884", "March 21, 1880", "December 17, 1880", "February 22, 1871", NA, "May 12, 1891", "December 03, 1887", "September 06, 1909", NA, "January 12, 1911", "January 10, 1864", "August 28, 1892", "August 17, 1855", NA, "December 16, 1888", NA, "August 10, 1893", "December 20, 1890", NA, "July 02, 1893", "July 14, 1887", NA, "May 30, 1879", "January 26, 1889", "January 17, 1854", "June 25, 1861", "March 08, 1872", "November 18, 1864", "September 24, 1875", "August 02, 1891", "August 03, 1879", "November 10, 1886", NA, "March 20, 1869", NA, "February 05, 1872", "September 20, 1880", "August 22, 1841", "October 20, 1880", NA, "December 09, 1893", "December 21, 1887", "February 09, 1894", "May 28, 1868", "March 15, 1876", NA, "July 16, 1884", "September 10, 1891", "July 19, 1897", "August 10, 1851", "July 12, 1886", "October 28, 1897", "January 02, 1893", "October 28, 1893", "April 21, 1896", "November 28, 1880", "November 21, 1907", NA, "January 18, 1887", "February 29, 1852", "September 24, 1859", "October 17, 1867", NA, "March 06, 1863", "August 30, 1869", "July 18, 1893", "June 15, 1876", "May 16, 1893", "December 19, 1886", "August 23, 1885", "May 08, 1872", "May 09, 1866", "November 07, 1869", "December 19, 1889", NA, "June 24, 1887", NA, "July 21, 1863", "March 25, 1883", "October 22, 1859", "January 10, 1893", "July 04, 1873", "December 04, 1884", NA, "November 29, 1878", "October 29, 1905", "July 11, 1894", "July 15, 1877", "October 02, 1861", "February 13, 1885", "July 09, 1891", "January 22, 1882", NA, "October 22, 1886", "August 14, 1886", "January 24, 1883", "July 10, 1900", NA, "August 15, 1888", "September 16, 1888", "December 26, 1883", "December 10, 1863", "January 03, 1877", NA, NA, NA, "June 14, 1875", "May 03, 1890", "November 10, 1887", "May 26, 1880", "April 20, 1841", "January 24, 1896", "July 21, 1881", "December 19, 1892", "July 05, 1880", "April 05, 1908", "December 18, 1905", "January 25, 1879", "December 26, 1888", "April 18, 1863", "October 15, 1910", "January 07, 1884", "August 13, 1893", "February 08, 1878", "March 03, 1879", NA, "February 21, 1871", "September 27, 1891", "October 04, 1875", "October 20, 1895", "June 13, 1860", NA, "March 03, 1882", NA, "June 27, 1879", "December 03, 1887", "May 01, 1863", "August 28, 1854", NA, "November 21, 1857", "March 28, 1894", NA, "July 02, 1906", NA, "June 19, 1868", "February 25, 1899", "October 01, 1894", "July 06, 1882", NA, "March 11, 1887", "April 04, 1887", "March 30, 1894", "November 01, 1903", "April 09, 1911", "August 20, 1865", NA, "August 30, 1895", NA, NA, "September 15, 1886", "July 27, 1872", "May 09, 1862", "May 14, 1880", "September 19, 1881", "April 10, 1882", "May 26, 1877", "July 04, 1880", "July 04, 1900", "December 07, 1910", "October 17, 1884", "January 05, 1881", "August 08, 1872", "February 17, 1894", "October 16, 1872", "December 20, 1878", "March 25, 1886", "April 20, 1872", "October 22, 1876", "February 09, 1906", "August 12, 1881", NA, "December 20, 1888", "November 26, 1880", "December 08, 1868", "March 30, 1902", "July 09, 1859", "August 13, 1884", "February 14, 1874", "June 06, 1884", "March 17, 1910", NA, NA, "May 16, 1910", NA, "December 21, 1849", "April 03, 1897", "December 03, 1910", NA, "September 15, 1888", "February 02, 1894", "July 19, 1872", "December 10, 1890", NA, "November 14, 1879", NA, "December 06, 1891", "April 24, 1895", "May 08, 1881", "April 08, 1878", "March 23, 1895", "June 25, 1869", NA, "December 23, 1876", "August 13, 1883", NA, "December 18, 1907", "May 11, 1837", "April 08, 1903", "May 31, 1895", "August 31, 1867", "February 20, 1894", "February 11, 1867", "December 15, 1860", "December 28, 1887", NA, "March 03, 1871", "September 30, 1890", "December 27, 1863", NA, "September 24, 1887", "March 13, 1870", "May 28, 1884", "May 05, 1880", NA, "December 29, 1907", "February 26, 1886", "April 16, 1864", "January 16, 1879", "January 25, 1865", "October 12, 1883", "November 25, 1896", "August 23, 1891", "October 01, 1892", NA, "August 02, 1855", "May 11, 1886", "January 03, 1879", "June 04, 1889", "January 25, 1884", "February 21, 1887", "August 18, 1872", "August 24, 1884", "March 23, 1893", NA, "December 03, 1885", "August 16, 1879")
+
+    # Have a look at head() of dob1 and dob2
+    head(dob1)
+    head(dob2)
+
+    # Convert dob1 to dob1d, convert dob2 to dob2d
+    dob1d <- as.Date(dob1)
+    dob2d <- as.Date(dob2, format = "%B %d, %Y")
+
+
+    # Combine dob1d and dob2d into single vector: birth_dates
+    birth_dates <- c(dob1d, dob2d)
+}
+
+exploratory()
+#infer_gender_from_name1()
+#infer_gender_from_name2()
+#infer_gender_from_name3()
+reformat_passenger_names()
+add_birth_dates()
+
+
+
+

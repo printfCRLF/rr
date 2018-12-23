@@ -54,12 +54,10 @@ present_value_cash_flow <- function() {
 
 }
 
-#create_dataframe()
-#head_tail()
+create_dataframe()
+head_tail()
 
 #subsetting()
 #add_new_columns()
 
-present_value_cash_flow()
-
-
+#present_value_cash_flow()
