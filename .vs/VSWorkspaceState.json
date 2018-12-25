@@ -2,15 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\FinanceBasicsWithR",
-    "\\FinanceBasicsWithR\\inter-r-practice",
+    "\\FinanceBasicsWithR\\DataCampRProgramming",
     "\\FinanceBasicsWithR\\inter-r-practice\\inter-r-practice",
-    "\\FinanceBasicsWithR\\inter-r-practice\\inter-r-practice\\5_utilities",
-    "\\FinanceBasicsWithR\\intermediate-r-practice",
-    "\\FinanceBasicsWithR\\intermediate-r-practice\\1_conditionals",
-    "\\FinanceBasicsWithR\\intermediate-r-practice\\5_utilities",
-    "\\FinanceBasicsWithR\\XtsZoo",
-    "\\FinanceBasicsWithR\\XtsZoo\\3_merging_modifying"
+    "\\FinanceBasicsWithR\\IntroRFinance",
+    "\\FinanceBasicsWithR\\XtsZoo\\3_merging_modifying",
+    "\\RProgramming"
   ],
-  "SelectedNode": "\\FinanceBasicsWithR\\inter-r-practice\\inter-r-practice\\5_utilities\\titanic.R",
+  "SelectedNode": "\\FinanceBasicsWithR\\IntroRFinance\\5_lists",
   "PreviewInSolutionExplorer": false
 }

@@ -1,0 +1,23 @@
+﻿$`4`
+Call:
+lm(formula = mpg ~ wt, data = .)
+
+Coefficients:
+(Intercept)           wt  
+     39.571       -5.647  
+
+$`6`
+Call:
+lm(formula = mpg ~ wt, data = .)
+
+Coefficients:
+(Intercept)           wt  
+      28.41        -2.78  
+
+$`8`
+Call:
+lm(formula = mpg ~ wt, data = .)
+
+Coefficients:
+(Intercept)           wt  
+     23.868       -2.192

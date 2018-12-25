@@ -8,7 +8,6 @@ solving_simple_problem_first <- function() {
     lm(mpg ~ wt, four_cyls)
 }
 
-
 solving_simple_problem_first()
 
 use_anonymous_function <- function() {
@@ -31,7 +30,13 @@ use_anonymous_function <- function() {
     # Use string shortcut to extract the wt coefficient 
     map(coefs, "wt")
 
+    # use map_dbl with the numeric shortcut to pull out the second element
+    map_dbl(coefs, 2)
 
+   
+}
+
+pipes <- function() {
     # Define models (don't change)
     models <- mtcars %>%
     split(mtcars$cyl) %>%
@@ -40,5 +45,9 @@ use_anonymous_function <- function() {
     # Rewrite to be a single command using pipes 
     summaries <- map(models, summary)
     map_dbl(summaries, "r.squared")
+
+    map(models, summary) %>%
+    map_dbl("r.squared")
 }
 
+pipes()

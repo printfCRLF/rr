@@ -40,9 +40,9 @@ picking_the_right_map_function <- function() {
         a = rnorm(10)
         )
 
-    map_lgl(df3, is.numeric)
-    map_chr(df3, typeof)
-    map(df3, summary)
+    map_lgl(df3, is.numeric) # logic
+    map_chr(df3, typeof) # character
+    map(df3, summary) # list
 }
 
 #the_map_functions()
