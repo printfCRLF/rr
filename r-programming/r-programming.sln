@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{DA7A21FA-8162-4350-AD77-A8D1B671F3ED}") = "inter-r-practice", "inter-r-practice\inter-r-practice.rxproj", "{80C3F6C3-8AB7-4C23-9512-ED5298A79BD5}"
 EndProject
+Project("{DA7A21FA-8162-4350-AD77-A8D1B671F3ED}") = "writing-functions", "writing-functions\writing-functions.rxproj", "{86A3BE65-279F-431F-A3BF-49881C1CBD27}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{80C3F6C3-8AB7-4C23-9512-ED5298A79BD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80C3F6C3-8AB7-4C23-9512-ED5298A79BD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80C3F6C3-8AB7-4C23-9512-ED5298A79BD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86A3BE65-279F-431F-A3BF-49881C1CBD27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86A3BE65-279F-431F-A3BF-49881C1CBD27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86A3BE65-279F-431F-A3BF-49881C1CBD27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86A3BE65-279F-431F-A3BF-49881C1CBD27}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
