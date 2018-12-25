@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{DA7A21FA-8162-4350-AD77-A8D1B671F3ED}") = "WritingFunctionsInR", "WritingFunctionsInR\WritingFunctionsInR.rxproj", "{D39A3C4F-8F8C-4A03-8AE4-3C7EB26E21E4}"
-EndProject
 Project("{DA7A21FA-8162-4350-AD77-A8D1B671F3ED}") = "inter-r-practice", "inter-r-practice\inter-r-practice.rxproj", "{80C3F6C3-8AB7-4C23-9512-ED5298A79BD5}"
 EndProject
 Global
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D39A3C4F-8F8C-4A03-8AE4-3C7EB26E21E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D39A3C4F-8F8C-4A03-8AE4-3C7EB26E21E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D39A3C4F-8F8C-4A03-8AE4-3C7EB26E21E4}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{D39A3C4F-8F8C-4A03-8AE4-3C7EB26E21E4}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{80C3F6C3-8AB7-4C23-9512-ED5298A79BD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{80C3F6C3-8AB7-4C23-9512-ED5298A79BD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80C3F6C3-8AB7-4C23-9512-ED5298A79BD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
