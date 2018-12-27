@@ -1,12 +1,23 @@
 library(xts)
-
+# eXtensible Time Series
 # xts = matrix + times (as index)
 # xts() constructor 
 # x - for data and order.by for the index 
 # x must be a vector or matrix, 
 # order.by is a vector which must be the same length or number of rows as x
 
+more_than_a_matrix <- function() {
+    core <- matrix(1:6, ncol = 2, nrow = 3)
+    idx <- as.Date(c("2016-06-01", "2016-06-02", "2016-06-03"))
+    ex_matrix <- xts(core, order.by = idx)
+
+    ex_matrix[3, 2]
+
+    core[3, 2]
+}
+
 first_xts_object <- function() {
+    # The main xts constructor takes a number of arguments, but the two most important are x for the data and order.by for the index. x must be a vector or matrix. order.by is a vector which must be the same length or number of rows as x, be a proper time or date object and be in increasing order. 
     data = rnorm(5)
     dates <- seq(as.Date("2016-01-01"), length = 5, by = "days")
     smith <- xts(x = data, order.by = dates)
@@ -38,7 +49,7 @@ time_based_indices <- function() {
     print(result)
 }
 
-
-#first_xts_object()
-time_based_indices()
+#more_than_a_matrix()
+first_xts_object()
+#time_based_indices()
 
