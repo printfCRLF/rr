@@ -1,7 +1,7 @@
+library(PerformanceAnalytics)
+
 usd_eur_csv <- read.csv("USDEUR.csv")
 usd_eur <- as.xts(usd_eur_csv)
-
-library(PerformanceAnalytics)
 
 convert_univariates_to_ohlc <- function() {
     print("Convert to weekly, print length")
