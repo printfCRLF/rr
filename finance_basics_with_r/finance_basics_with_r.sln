@@ -9,6 +9,8 @@ Project("{DA7A21FA-8162-4350-AD77-A8D1B671F3ED}") = "intermediate_r_for_finance"
 EndProject
 Project("{DA7A21FA-8162-4350-AD77-A8D1B671F3ED}") = "xts-zoo2", "xts-zoo2\xts-zoo2.rxproj", "{84D67AE3-962D-411F-B525-FBF824FA42AD}"
 EndProject
+Project("{DA7A21FA-8162-4350-AD77-A8D1B671F3ED}") = "importing_and_managing_financial_data", "importing_and_managing_financial_data\importing_and_managing_financial_data.rxproj", "{733D9F5A-1512-4AE3-835E-D5367A47801E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{84D67AE3-962D-411F-B525-FBF824FA42AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84D67AE3-962D-411F-B525-FBF824FA42AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84D67AE3-962D-411F-B525-FBF824FA42AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{733D9F5A-1512-4AE3-835E-D5367A47801E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{733D9F5A-1512-4AE3-835E-D5367A47801E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{733D9F5A-1512-4AE3-835E-D5367A47801E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{733D9F5A-1512-4AE3-835E-D5367A47801E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
