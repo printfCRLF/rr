@@ -1,3 +1,4 @@
+library(quantmod)
 
 find_stock_ticker_from_yahoo_finance <- function() {
     symbol <- "PFE"
