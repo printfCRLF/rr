@@ -1,10 +1,8 @@
 library(Quandl)
 library(quantmod)
 
-Quandl.api_key("PzZExr22s64m_hmxHZ_W")
-
 use_quandl_to_download_weekly_returns_data <- function() {
-    quandl_codes <- c("CME/CLH2016","CME/BZH2016")
+    quandl_codes <- c("CME/CLH2016", "CME/BZH2016")
     # Download quarterly CL and BZ prices
     qtr_price <- Quandl(code = quandl_codes, type = "xts", collapse = c("quarterly"))
 
