@@ -16,11 +16,4 @@ calculation_of_portfolio_returns <- function() {
 }
 
 
-
-
-
-
-
-
-
 calculation_of_portfolio_returns()
