@@ -4,10 +4,9 @@ library(PerformanceAnalytics)
 library(quantmod)
 
 sp500 <- as.xts(readRDS("./data/daily_sp500.RData"))
-sp500 <- sp500["1986-01/1999-12"]
+sp500_before2000 <- sp500["1986-01/1999-12"]
 rf <- getSymbols("TB1YR", src = "FRED", auto.assign = FALSE)
 rf <- rf["1986-01/1999-12"]
-
 
 exploring_the_monthly_sp500_returns <- function(sp500) {
     sp500_monthly <- to.monthly(sp500)
@@ -36,22 +35,25 @@ excess_return_and_sharpe_ratio <- function(rf, sp500_returns) {
     print(paste("sp500_sharpe: ", sp500_sharpe))
 }
 
-annualized_mean_and_volatility <- function() {
+annualized_mean_and_volatility <- function(sp500_returns) {
     # Compute the annualized mean
-    Return.annualized(sp500_returns)
+    Return.annualized(sp500_returns, scale = 12)
 
     # Compute the annualized standard deviation
-    StdDev.annualized(sp500_returns)
+    StdDev.annualized(sp500_returns, scale = 12)
 
     # Compute the annualized Sharpe ratio: ann_sharpe
-    ann_sharpe <- Return.annualized(sp500_returns) / StdDev.annualized(sp500_returns)
+    ann_sharpe <- Return.annualized(sp500_returns, scale = 12) / StdDev.annualized(sp500_returns, scale = 12)
 
     # Compute all of the above at once using table.AnnualizedReturns()
-    table.AnnualizedReturns(sp500_returns)
+    table.AnnualizedReturns(sp500_returns, scale = 12)
 }
 
-sp500_returns <- exploring_the_monthly_sp500_returns(sp500)
-sp500_returns <- sp500_returns[-1, ]
+sp500_returns_before2000 <- exploring_the_monthly_sp500_returns(sp500_before2000)
+sp500_returns_before2000 <- sp500_returns[-1,]
 
-excess_return_and_sharpe_ratio(rf, sp500_returns)
-#annualized_mean_and_volatility()
+sp500_returns <- exploring_the_monthly_sp500_returns(sp500)
+sp500_returns <- sp500_returns[-1,]
+
+excess_return_and_sharpe_ratio(rf, sp500_returns_before2000)
+annualized_mean_and_volatility(sp500_returns)
