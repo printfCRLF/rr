@@ -1,5 +1,20 @@
+library(zoo)
+library(xts)
+library(PerformanceAnalytics)
+library(quantmod)
 
-driver2_choice_of_weights <- function() {
+prices_to_returns <- function(prices) {
+    returns <- Return.calculate(prices)
+    returns <- returns[-1,]
+    returns
+}
+
+eq_prices <- as.xts(readRDS("./data/eq_prices.RData"))
+returns_equities <- prices_to_returns(eq_prices)
+bond_prices <- as.xts(readRDS("./data/bond_prices.RData"))
+returns_bonds <- prices_to_returns(bond_prices)
+
+driver2_choice_of_weights <- function(returns_equities, returns_bonds) {
     # Create a grid
     grid <- seq(from = 0, to = 1, by = 0.01)
 
@@ -18,7 +33,7 @@ driver2_choice_of_weights <- function() {
     abline(v = grid[vsharpe == max(vsharpe)], lty = 3)
 }
 
-interpreting_correlation <- function() {
+interpreting_correlation <- function(returns_equities, returns_bonds) {
     # Create a scatter plot
     chart.Scatter(x = returns_bonds, y = returns_equities, xlab = "bond returns", ylab = "equity returns", main = "bond-equity returns")
 
@@ -35,6 +50,6 @@ interpreting_correlation <- function() {
     chart.RollingCorrelation(returns_bonds, returns_equities, width = 24)
 }
 
-driver2_choice_of_weights()
-interpreting_correlation()
+#driver2_choice_of_weights(returns_equities, returns_bonds)
+interpreting_correlation(returns_equities, returns_bonds)
 
