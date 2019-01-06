@@ -13,6 +13,8 @@ Project("{DA7A21FA-8162-4350-AD77-A8D1B671F3ED}") = "PortfolioAnalysis", "Portfo
 EndProject
 Project("{DA7A21FA-8162-4350-AD77-A8D1B671F3ED}") = "intro_portfolio_analysis", "intro_portfolio_analysis\intro_portfolio_analysis.rxproj", "{F07D8356-02EC-449F-89C7-866B2158525D}"
 EndProject
+Project("{DA7A21FA-8162-4350-AD77-A8D1B671F3ED}") = "intermediate_portfolio_analysis", "intermediate_portfolio_analysis\intermediate_portfolio_analysis.rxproj", "{DDBC1172-291F-4C27-88E2-45E8ED6CBA1A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{F07D8356-02EC-449F-89C7-866B2158525D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F07D8356-02EC-449F-89C7-866B2158525D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F07D8356-02EC-449F-89C7-866B2158525D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDBC1172-291F-4C27-88E2-45E8ED6CBA1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDBC1172-291F-4C27-88E2-45E8ED6CBA1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDBC1172-291F-4C27-88E2-45E8ED6CBA1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDBC1172-291F-4C27-88E2-45E8ED6CBA1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
