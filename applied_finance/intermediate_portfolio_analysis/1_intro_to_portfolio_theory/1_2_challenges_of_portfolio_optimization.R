@@ -2,6 +2,8 @@
 library(quadprog)
 library(PortfolioAnalytics)
 
+data(edhec)
+
 maximize_quadratic_utility_function <- function() {
     # Create the portfolio specification
     port_spec <- portfolio.spec(assets = colnames(index_returns))

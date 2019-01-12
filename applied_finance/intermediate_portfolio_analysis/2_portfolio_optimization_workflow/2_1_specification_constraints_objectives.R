@@ -1,3 +1,18 @@
+library(zoo)
+library(xts)
+library(PerformanceAnalytics)
+library(quantmod)
+
+prices_to_returns <- function(prices) {
+    returns <- Return.calculate(prices)
+    returns <- returns[-1,]
+    returns
+}
+
+data <- readRDS("./data/port_spec_fi_lo_ret.rds")
+data <- readRDS("./data/port_spec_ws_lo_ret_ri_ribud.rds")
+data <- readRDS("./data/rp_fi_lo_ret.rds")
+data <- readRDS("./data/rp_ws_lo_ret_ri_ribud.rds")
 
 create_portfolio_spec <- function() {
     # Get the column names of the returns data
