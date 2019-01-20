@@ -3,18 +3,9 @@ library(xts)
 library(PerformanceAnalytics)
 library(quantmod)
 
-prices_to_returns <- function(prices) {
-    returns <- Return.calculate(prices)
-    returns <- returns[-1,]
-    returns
-}
+asset_returns <- edhec
 
-data <- readRDS("./data/port_spec_fi_lo_ret.rds")
-data <- readRDS("./data/port_spec_ws_lo_ret_ri_ribud.rds")
-data <- readRDS("./data/rp_fi_lo_ret.rds")
-data <- readRDS("./data/rp_ws_lo_ret_ri_ribud.rds")
-
-create_portfolio_spec <- function() {
+create_portfolio_spec <- function(asset_returns) {
     # Get the column names of the returns data
     asset_names <- colnames(asset_returns)
 
@@ -25,10 +16,15 @@ create_portfolio_spec <- function() {
     class(port_spec)
 
     # Print the portfolio specification object
-    print(port_spec)
+    #print(port_spec)
+
+    return(port_spec)
 }
 
-add_constraints <- function() {
+add_constraints <- function(asset_returns, port_spec) {
+
+    asset_names <- colnames(asset_returns)
+
     # Add the weight sum constraint
     port_spec <- add.constraint(portfolio = port_spec, type = "weight_sum", min_sum = 1, max_sum = 1)
 
@@ -43,11 +39,12 @@ add_constraints <- function() {
 
 
     # Print the portfolio specification object
-    print(port_spec)
+    #print(port_spec)
 
+    return(port_spec)
 }
 
-add_objectives <- function() {
+add_objectives <- function(port_spec) {
     # Add a return objective to maximize mean return
     port_spec <- add.objective(portfolio = port_spec, type = "return", name = "mean")
 
@@ -60,4 +57,9 @@ add_objectives <- function() {
     # Print the portfolio specification object
     print(port_spec)
 
+    return(port_spec)
 }
+
+port_spec <- create_portfolio_spec(asset_returns)
+port_spec <- add_constraints(asset_returns, port_spec)
+port_spec <- add_objectives(port_spec)
