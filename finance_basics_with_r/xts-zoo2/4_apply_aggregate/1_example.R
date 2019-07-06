@@ -36,11 +36,11 @@ selection_by_endpoint <- function() {
 
     # Subset temps using last_day_of_weeks 
     temps_2 <- temps[last_day_of_weeks]
-
+    
 }
 
-#find_intervals_by_time()
-#apply_a_function_by_timeperiod()
+find_intervals_by_time()
+apply_a_function_by_timeperiod()
 #using_lapply()
 selection_by_endpoint(9)
 
